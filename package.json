@@ -1,0 +1,17 @@
+{
+  "name": "crickarena",
+  "version": "1.0.0",
+  "description": "Live cricket scoring for local matches",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n SERVER,CLIENT -c cyan,green \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "start": "npm run start --workspace=server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
