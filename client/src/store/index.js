@@ -5,9 +5,10 @@ import { generateClientId } from '../utils/cricket';
 import toast from 'react-hot-toast';
 import { io } from 'socket.io-client';
 
-const socket = io('/', { 
-  path: '/socket.io',
-  transports: ['websocket', 'polling'], // Allow fallback but prioritize websocket
+const SOCKET_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
+const socket = io(SOCKET_URL, {
+  transports: ['websocket', 'polling'],
   reconnection: true,
   reconnectionAttempts: 10,
 });
